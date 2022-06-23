@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Book</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+  <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<form th:object="${book}" th:action="@{/book/}" method="post" enctype="multipart/form-data">
+  <input type="hidden" th:field="*{bookId}"/>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="background-color:lightgray;">
+        <h1 class="panel-title">Book information</h1>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+
+
+          <div class="col-md-3 form-group">
+            <label>Book name:</label>
+            <input type="text" class="form-control" th:field="*{bookName}"/>
+          </div>
+
+          <div class="col-md-3 form-group">
+            <label>New description</label>
+            <input type="text" class="form-control" th:value="${book.bookDetails.bookDetailsId}" th:field="*{bookDetails.bookDetailsId}"/>
+          </div>
+
+
+
+
+
+          <div class="col-md-3 form-group">
+            <label>New no. of pages:</label>
+            <input type="number" class="form-control" th:value="${book.bookDetails.noOfPages}" th:field="*{bookDetails.noOfPages}"/>
+          </div>
+
+          <div class="col-md-3 form-group">
+            <label>New price:</label>
+            <input type="number" class="form-control" th:value="${book.bookDetails.price}" th:field="*{bookDetails.price}"/>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="row">
+
+
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-7 ml-md-auto">
+            <button type="submit" class="btn btn-primary">Submit update</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+</body>
+</html>

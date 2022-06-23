@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save new Author</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<form th:object="${author}" th:action="@{/author/}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{authorId}"/>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color:lightgray;">
+                <h1 class="panel-title">Author INFO</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label>Author name:</label>
+                        <label th:if="${#fields.hasErrors('authorName')}" th:errors="*{authorName}">Error</label>
+                        <input type="text" class="form-control" th:field="*{authorName}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Contact:</label>
+                        <input type="text" class="form-control" th:field="*{contact}"/>
+                    </div>
+                </div>
+
+
+                <div class = "row">
+                    <div class="col-md-4">
+                        <label th:for="info">Info</label>
+                    </div>
+                </div>
+                <div class="row">
+
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-7 ml-md-auto">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

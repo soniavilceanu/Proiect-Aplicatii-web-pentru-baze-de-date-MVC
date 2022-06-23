@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover ">
+        <thead class="thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Author Info</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tr th:each="author, stat : ${authors}"
+            th:class="${stat.odd}? 'table-light':'table-dark'"
+        >
+            <td th:text="${author.authorId}">1</td>
+            <td th:text="${author.authorName}">Product 1</td>
+            <td th:text="${author.contact}">Code</td>
+            <td><a href="#" th:href="@{'/author/info/' + ${author.authorId}}">Info</a></td>
+            <td><a href="#" th:href="@{'/author/delete/' + ${author.authorId}}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-primary" role="button" th:href="@{'/author/new'}">add author</a>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="col-md-3">
+    <form th:action="@{/logout}" method="POST">
+        <input type="submit" class="btn btn-primary" value="Logout">
+    </form>
+</div>
+
+
+</body>
+</html>

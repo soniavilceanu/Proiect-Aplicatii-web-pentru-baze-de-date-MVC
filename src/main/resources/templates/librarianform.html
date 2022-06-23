@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save new Librarian</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<form th:object="${librarian}" th:action="@{/librarian/}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:field="*{librarianId}"/>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color:lightgray;">
+                <h1 class="panel-title">Librarian INFO</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label>Librarian name:</label>
+                        <input type="text" class="form-control" th:field="*{librarianName}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Email:</label>
+                        <input type="text" class="form-control" th:field="*{email}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Library:</label>
+                        <input type="text" class="form-control" th:field="*{library.libraryId}"/>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-7 ml-md-auto">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

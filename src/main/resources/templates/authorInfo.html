@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Info</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="pannel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="background-color:lightgray;">
+                        <h1 class="panel-title" th:text="${author.authorName}">Author</h1>
+                    </div>
+                    <div class="panel-body">
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p>Contact number:</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p th:text="${author.contact != null ?(author.contact):'code'}">Contact</p>
+                            </div>
+
+                            <div class="col-md-2" style="display:block;">
+                                <p>Books written:</p>
+                            </div>
+
+                            <table style="display:block;">
+
+                                <tr th:each="book : ${author.bookList}">
+                                    <td class="align-middle" th:text="${book.bookName}"></td>
+
+                                </tr>
+                            </table>
+
+
+                            <div class="col-md-6">
+                                <a class="btn btn-primary" role="button" th:href="@{'/author/update/' + ${author.authorId}}">update author</a>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
